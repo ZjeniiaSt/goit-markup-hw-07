@@ -5,27 +5,31 @@
   transition: color 250ms $timing;
 }
 
-.header a{
+.header a {
   transition: color 250ms $timing;
   &:hover,
   &:focus {
-  color: $accent-color;
-}
+    color: $accent-color;
+  }
 }
 
 .header-line {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-}
-
-.nav {
-  display: flex;
 }
 
 .site-nav {
   display: flex;
-  margin-left: 93px;
+  margin-left: 88px;
+  @media screen and (min-width: 1200px) {
+    margin-left: 93px;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .site-nav__item {
@@ -37,9 +41,9 @@
   line-height: 1.14;
   letter-spacing: 0.02em;
 
- &:not(:last-child) {
-  margin-right: 50px;
-}
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
 }
 .addres__item {
   color: $text-color;
@@ -47,25 +51,33 @@
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  
-  &:first-child {
-  margin-right: 50px;
-}
+
+  @media screen and (min-width: 1200px) {
+    &:first-child {
+      margin-right: 50px;
+    }
+  }
 }
 
 .addres {
-  display: flex;
-  margin-left: auto;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+  }
 }
-
-
 
 .site-nav__item--active {
   position: relative;
   color: $accent-color;
 
-&::after {
-    content:'';
+  &::after {
+    content: "";
     position: absolute;
     left: 0;
     bottom: -1px;
@@ -73,7 +85,7 @@
     border-radius: 2px;
     width: 100%;
     height: 4px;
-}
+  }
 }
 
 .addres__icon {
@@ -81,12 +93,12 @@
   fill: $text-color;
   transition: fill 250ms $timing;
 
-.addres__item & {
-  transition: fill 250ms $timing;
-}
+  .addres__item & {
+    transition: fill 250ms $timing;
+  }
 
-.addres__item:hover &,
-.addres__item:focus & 
-{
-  fill: $accent-color;
-}}
+  .addres__item:hover &,
+  .addres__item:focus & {
+    fill: $accent-color;
+  }
+}
